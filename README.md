@@ -20,3 +20,8 @@ Files to check can be
 - Tests
   - Tests/helpers/parser_helper_test.rb
   = tests/helpers/regex_helper_test.rb
+
+- TODO:
+  - Add more tests
+  - Fix the indentation to 2 tabs
+  - Add support for ipv6 if possible.
