@@ -8,7 +8,8 @@ class ParserController < ApplicationController
 	end
 
 	def parse
-		input_url = URI::encode(params[:url])
+		input_url = params[:url]
+		input_url = input_url.gsub(' ', '%20')
 		if (ParserHelper.valid_url?(input_url))
 			@url = ParserHelper.parse_url(input_url)
 			return
@@ -22,12 +23,7 @@ class ParserController < ApplicationController
 	def require_login
 		if (session[:user_id]).nil?
 		  flash[:error] = "You must be logged in to access this section"
-		  redirect_to root_path # halts request cycle
+		  redirect_to root_path
 		end
 	end
-
-	def validate_params
-	  return false unless params[:url].present?
-	end
-
 end
