@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scheme: MyString
+  user: MyString
+  password: MyString
+  host: MyString
+  port: 1
+  path: MyString
+  query: MyString
+  opaque: MyString
+  fragment: MyString
+
+two:
+  scheme: MyString
+  user: MyString
+  password: MyString
+  host: MyString
+  port: 1
+  path: MyString
+  query: MyString
+  opaque: MyString
+  fragment: MyString

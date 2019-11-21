@@ -22,3 +22,13 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+# todo:
+	- Write test cases
+	- Fail them
+	- Write initial code
+	- pass some cases
+	- write final code
+	- pass all cases
+	- Decorate
+	- add comments
+	- add more tests if possible.

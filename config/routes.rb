@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-	root 'parser#index'
-
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  root 'authenticate#index'
+  post 'parser/parse', :to => 'parser#parse'
+  get 'parser/index', :to => 'parser#index'
+  
+  post 'authenticate/login', :to => 'authenticate#login'
+  
 end

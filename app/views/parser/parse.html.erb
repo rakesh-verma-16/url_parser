@@ -1,0 +1,9 @@
+<h2>URL contents are:</h2>
+<ul>
+<% @url.each do |component, value| %>
+ <li> <%= "#{component} => #{value}" %> </li>
+<% end %>
+</ul>
+<br>
+<%= button_to("Submit another url", parser_index_path, method: "get") %>
+
