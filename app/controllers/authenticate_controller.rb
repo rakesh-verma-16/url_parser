@@ -3,9 +3,6 @@ class AuthenticateController < ApplicationController
   
   skip_before_action :verify_authenticity_token
   before_action :already_logged_in, except: [:logout]
-  
-  def index
-  end
 
   def login
   	@username = params[:username]
@@ -15,7 +12,7 @@ class AuthenticateController < ApplicationController
   		flash[:notice] = 'Succesfully signed in.'
   		redirect_to parser_index_path
 	  else
-      flash[:alert] = "Invalid credentials entered. please try again."
+      flash[:alert] = Authentication::INVALID_CREDENTIALS
     	redirect_to root_path
     end
   end
@@ -35,10 +32,7 @@ class AuthenticateController < ApplicationController
   end
 
   def valid_credentials?(username,pass)
-  	unless Authentication::USERNAME_PASSWORDS.has_key?(username.to_s) && pass == Authentication::USERNAME_PASSWORDS.fetch(username).to_s
-      return false
-    end
-    return true
+    return Authentication::USERNAME_PASSWORDS.has_key?(username.to_s) && pass == Authentication::USERNAME_PASSWORDS.fetch(username).to_s ? true : false
   end
 
 end

@@ -1,11 +1,9 @@
 require_relative '../helpers/parser_helper'
+require_relative '../helpers/authentication'
 class ParserController < ApplicationController
 
 	skip_before_action :verify_authenticity_token
 	before_action :require_login
-
-	def index
-	end
 
 	def parse
 		input_url = params[:url]
@@ -22,7 +20,7 @@ class ParserController < ApplicationController
  
 	def require_login
 		if (session[:user_id]).nil?
-		  flash[:error] = "You must be logged in to access this section"
+		  flash[:error] = Authentication::LOGIN_REQUIRED
 		  redirect_to root_path
 		end
 	end

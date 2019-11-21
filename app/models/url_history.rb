@@ -1,6 +1,18 @@
 class UrlHistory < ApplicationRecord
 
-	def self.create_url_history_object(uri_components)
+	UNABLE_TO_SAVE = "Unable to save to database."
+	
+	def self.insert(uri_components)
+		url_history = self.create_object(uri_components)
+		if (url_history.save)
+			return true
+		end
+		return false
+	end
+
+	private 
+
+	def self.create_object(uri_components)
 		url_history = UrlHistory.new(
 			:scheme => uri_components["scheme"],
 			:user => uri_components["user"],
@@ -12,14 +24,6 @@ class UrlHistory < ApplicationRecord
 			:opaque => uri_components["opaque"],
 			:fragment => uri_components["fragment"]
 			)
-	end
-
-	def self.insert(uri_components)
-		url_history = self.create_url_history_object(uri_components)
-		if (url_history.save)
-			return true
-		end
-		return false
 	end
 
 end
