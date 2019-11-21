@@ -2,9 +2,10 @@ module ParserHelper
 
 	INVALID_URL = 'Invalid URL. Please try again with a valid URL.'
 	
+
+	private 
 	# Doesn't work on all kinds of URLs.
 	def self.valid_url?(url)
-
 		url_regexp = self.match_url_regex(url)
 		url =~ url_regexp ? true : false
 	end
@@ -15,9 +16,20 @@ module ParserHelper
 		if (!UrlHistory.insert(components))
 			flash[:notice] = 'Unable to save to db'
 		end
-		return components
+		return self.decode_components(components)
 	end
 
+	def self.decode_components(components)
+		result = {}
+		components.each do |key, value|
+			value = value.to_s
+			unless value.empty?
+				result[key] = CGI.unescape(value) if not value.nil?
+			end
+		end
+		result.delete("parser")
+		result
+	end
 
 	def self.match_url_regex(url)
 		scheme = url.split(':').first

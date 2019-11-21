@@ -8,7 +8,7 @@ class ParserController < ApplicationController
 	end
 
 	def parse
-		input_url = params[:url]
+		input_url = URI::encode(params[:url])
 		if (ParserHelper.valid_url?(input_url))
 			@url = ParserHelper.parse_url(input_url)
 			return

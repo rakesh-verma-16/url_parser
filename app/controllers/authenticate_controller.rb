@@ -2,7 +2,7 @@ require_relative '../helpers/authentication'
 class AuthenticateController < ApplicationController
   
   skip_before_action :verify_authenticity_token
-  before_action :already_logged_in, only: [:login]
+  before_action :already_logged_in, except: [:logout]
   
   def index
   end
