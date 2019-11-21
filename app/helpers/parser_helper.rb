@@ -3,7 +3,7 @@ require_relative '../models/url_history'
 
 module ParserHelper
 
-	INVALID_URL = 'Invalid URL. Please try again with a valid URL.'
+	INVALID_URL = 'Invalid URL. Please try again with a valid URL. http(s), ftp, mailto and tel allowed only.'
 	
 	private 
 
