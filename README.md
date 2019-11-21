@@ -1,34 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application deployed at https://shielded-taiga-08470.herokuapp.com/
 
-Things you may want to cover:
+Files to check can be
 
-* Ruby version
+- Controllers
+  - app/controllers/AuthenticationController
+  - app/controllers/ParserController
 
-* System dependencies
+- models
+  - app/models/UrlHistroy
 
-* Configuration
+- Helpers
+  - app/helpers/authentication.rb
+  - parser_helper.rb
+  - regex_helper.rb
+  - authentication.rb
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# todo:
-	- Write test cases
-	- Fail them
-	- Write initial code
-	- pass some cases
-	- write final code
-	- pass all cases
-	- Decorate
-	- add comments
-	- add more tests if possible.
+- Tests
+  - Tests/helpers/parser_helper_test.rb
+  = tests/helpers/regex_helper_test.rb
